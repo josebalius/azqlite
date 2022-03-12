@@ -1,4 +1,4 @@
-# azqlite
+# azqlite [![Go Reference](https://pkg.go.dev/badge/github.com/josebalius/azqlite.svg)](https://pkg.go.dev/github.com/josebalius/azqlite)
 
 azqlite is lightweight wrapper around [github.com/Azure/azure-storage-queue-go](https://github.com/Azure/azure-storage-queue-go) to interact with the Azure Storage Queue service in a simpler and more idiomatic way.
 
