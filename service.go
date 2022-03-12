@@ -83,7 +83,7 @@ func (s *Service) DeleteQueue(ctx context.Context, queueName string) error {
 	return err
 }
 
-// NewQueue returns an existing queue with the given name.
+// GetQueue returns an existing queue with the given name.
 func (s *Service) GetQueue(queueName string) Queue {
 	queueURL := s.serviceURL.NewQueueURL(queueName)
 	return newQueue(queueURL)
