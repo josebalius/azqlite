@@ -1,6 +1,6 @@
 # azqlite
 
-azqlite is lightweight wrapper around [github.com/Azure/azure-storage-queue-go/azqueue](https://github.com/Azure/azure-storage-queue-go/azqueue) to interact with the Azure Storage Queue service in a simpler and more idiomatic way.
+azqlite is lightweight wrapper around [github.com/Azure/azure-storage-queue-go](https://github.com/Azure/azure-storage-queue-go) to interact with the Azure Storage Queue service in a simpler and more idiomatic way.
 
 ## Install
 
