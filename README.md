@@ -28,9 +28,9 @@ q, err := storageService.CreateQueue(ctx, "test")
 err = s.DeleteQueue(ctx, "test")
 ```
 
-### Instantiate an existing queue
+### Get an existing queue
 ```go
-q := s.NewQueue("test")
+q := s.GetQueue("test")
 ```
 
 ### Get message count

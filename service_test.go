@@ -91,7 +91,7 @@ func TestDeleteQueue(t *testing.T) {
 	}
 }
 
-func TestNewQueue(t *testing.T) {
+func TestGetQueue(t *testing.T) {
 	accountName, accountKey := "name", "key"
 	accountKey = base64.StdEncoding.EncodeToString([]byte(accountKey))
 	s, err := NewService(Config{
@@ -101,7 +101,7 @@ func TestNewQueue(t *testing.T) {
 	if err != nil {
 		t.Fatalf("NewService returned error: %v", err)
 	}
-	q := s.NewQueue("test")
+	q := s.GetQueue("test")
 	if q == nil {
 		t.Fatal("NewQueue returned nil")
 	}

@@ -26,7 +26,7 @@ func TestMessageCount(t *testing.T) {
 	if err != nil {
 		t.Fatalf("NewService returned error: %v", err)
 	}
-	q := s.NewQueue("test")
+	q := s.GetQueue("test")
 	if q == nil {
 		t.Fatal("NewQueue returned nil")
 	}
@@ -71,7 +71,7 @@ func TestEnqueue(t *testing.T) {
 	if err != nil {
 		t.Fatalf("NewService returned error: %v", err)
 	}
-	q := s.NewQueue("test")
+	q := s.GetQueue("test")
 	if q == nil {
 		t.Fatal("NewQueue returned nil")
 	}
@@ -131,7 +131,7 @@ func TestDequeue(t *testing.T) {
 	if err != nil {
 		t.Fatalf("NewService returned error: %v", err)
 	}
-	q := s.NewQueue("test")
+	q := s.GetQueue("test")
 	if q == nil {
 		t.Fatal("NewQueue returned nil")
 	}
@@ -188,7 +188,7 @@ func TestPeek(t *testing.T) {
 	if err != nil {
 		t.Fatalf("NewService returned error: %v", err)
 	}
-	q := s.NewQueue("test")
+	q := s.GetQueue("test")
 	if q == nil {
 		t.Fatal("NewQueue returned nil")
 	}
@@ -228,7 +228,7 @@ func TestDelete(t *testing.T) {
 	if err != nil {
 		t.Fatalf("NewService returned error: %v", err)
 	}
-	q := s.NewQueue("test")
+	q := s.GetQueue("test")
 	if q == nil {
 		t.Fatal("NewQueue returned nil")
 	}
