@@ -29,10 +29,10 @@ func (q *queue) MessageCount(ctx context.Context) (int, error) {
 }
 
 type Message struct {
-	ID           string
-	PopReceipt   string
-	DequeueCount int
-	Body         string
+	ID           string `json:"id" xml:"MessageId"`
+	PopReceipt   string `json:"popReceipt" xml:"PopReceipt"`
+	DequeueCount int    `json:"dequeueCount" xml:"DequeueCount"`
+	Body         string `json:"messageText" xml:"MessageText"`
 }
 
 func (q *queue) Dequeue(ctx context.Context, count int, timeout time.Duration) ([]*Message, error) {
