@@ -32,7 +32,7 @@ type Message struct {
 	ID           string `json:"id" xml:"MessageId"`
 	PopReceipt   string `json:"popReceipt" xml:"PopReceipt"`
 	DequeueCount int    `json:"dequeueCount" xml:"DequeueCount"`
-	Body         string `json:"messageText" xml:"MessageText"`
+	Text         string `json:"messageText" xml:"MessageText"`
 }
 
 func (q *queue) Dequeue(ctx context.Context, count int, timeout time.Duration) ([]*Message, error) {
@@ -53,7 +53,7 @@ func (q *queue) Dequeue(ctx context.Context, count int, timeout time.Duration) (
 			ID:           string(msg.ID),
 			PopReceipt:   string(msg.PopReceipt),
 			DequeueCount: int(msg.DequeueCount),
-			Body:         msg.Text,
+			Text:         msg.Text,
 		}
 	}
 
@@ -70,7 +70,7 @@ func (q *queue) Enqueue(ctx context.Context, message string, timeout, ttl time.D
 		ID:           string(msg.MessageID),
 		PopReceipt:   string(msg.PopReceipt),
 		DequeueCount: 0,
-		Body:         message,
+		Text:         message,
 	}, nil
 }
 
@@ -92,7 +92,7 @@ func (q *queue) Peek(ctx context.Context, count int) ([]*Message, error) {
 			ID:           string(msg.ID),
 			PopReceipt:   "",
 			DequeueCount: int(msg.DequeueCount),
-			Body:         msg.Text,
+			Text:         msg.Text,
 		}
 	}
 

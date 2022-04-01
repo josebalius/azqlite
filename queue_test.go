@@ -86,8 +86,8 @@ func TestEnqueue(t *testing.T) {
 	if m.ID != "1" {
 		t.Fatalf("Enqueue returned ID %q, expected 1", m.ID)
 	}
-	if m.Body != body {
-		t.Fatalf("Enqueue returned Body %q, expected %q", m.Body, body)
+	if m.Text != body {
+		t.Fatalf("Enqueue returned Body %q, expected %q", m.Text, body)
 	}
 }
 
@@ -146,14 +146,14 @@ func TestDequeue(t *testing.T) {
 	if messages[0].ID != "1" {
 		t.Fatalf("Dequeue returned ID %q, expected 1", messages[0].ID)
 	}
-	if messages[0].Body != body {
-		t.Fatalf("Dequeue returned Body %q, expected %q", messages[0].Body, body)
+	if messages[0].Text != body {
+		t.Fatalf("Dequeue returned Body %q, expected %q", messages[0].Text, body)
 	}
 	if messages[1].ID != "2" {
 		t.Fatalf("Dequeue returned ID %q, expected 2", messages[1].ID)
 	}
-	if messages[1].Body != body2 {
-		t.Fatalf("Dequeue returned Body %q, expected %q", messages[1].Body, body2)
+	if messages[1].Text != body2 {
+		t.Fatalf("Dequeue returned Body %q, expected %q", messages[1].Text, body2)
 	}
 }
 
@@ -203,8 +203,8 @@ func TestPeek(t *testing.T) {
 	if messages[0].ID != "1" {
 		t.Fatalf("Peek returned ID %q, expected 1", messages[0].ID)
 	}
-	if messages[0].Body != body {
-		t.Fatalf("Peek returned Body %q, expected %q", messages[0].Body, body)
+	if messages[0].Text != body {
+		t.Fatalf("Peek returned Body %q, expected %q", messages[0].Text, body)
 	}
 }
 
