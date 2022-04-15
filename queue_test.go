@@ -18,7 +18,7 @@ func TestMessageCount(t *testing.T) {
 	accountName, accountKey := "name", "key"
 	accountKey = base64.StdEncoding.EncodeToString([]byte(accountKey))
 	serviceURL := testServer.URL + "/%s"
-	s, err := NewService(Config{
+	s, err := NewClient(Config{
 		AccountName:     accountName,
 		AccountKey:      accountKey,
 		AzureServiceURL: serviceURL,
@@ -63,7 +63,7 @@ func TestEnqueue(t *testing.T) {
 	accountName, accountKey := "name", "key"
 	accountKey = base64.StdEncoding.EncodeToString([]byte(accountKey))
 	serviceURL := testServer.URL + "/%s"
-	s, err := NewService(Config{
+	s, err := NewClient(Config{
 		AccountName:     accountName,
 		AccountKey:      accountKey,
 		AzureServiceURL: serviceURL,
@@ -123,7 +123,7 @@ func TestDequeue(t *testing.T) {
 	accountName, accountKey := "name", "key"
 	accountKey = base64.StdEncoding.EncodeToString([]byte(accountKey))
 	serviceURL := testServer.URL + "/%s"
-	s, err := NewService(Config{
+	s, err := NewClient(Config{
 		AccountName:     accountName,
 		AccountKey:      accountKey,
 		AzureServiceURL: serviceURL,
@@ -180,7 +180,7 @@ func TestPeek(t *testing.T) {
 	accountName, accountKey := "name", "key"
 	accountKey = base64.StdEncoding.EncodeToString([]byte(accountKey))
 	serviceURL := testServer.URL + "/%s"
-	s, err := NewService(Config{
+	s, err := NewClient(Config{
 		AccountName:     accountName,
 		AccountKey:      accountKey,
 		AzureServiceURL: serviceURL,
@@ -220,7 +220,7 @@ func TestDelete(t *testing.T) {
 	accountName, accountKey := "name", "key"
 	accountKey = base64.StdEncoding.EncodeToString([]byte(accountKey))
 	serviceURL := testServer.URL + "/%s"
-	s, err := NewService(Config{
+	s, err := NewClient(Config{
 		AccountName:     accountName,
 		AccountKey:      accountKey,
 		AzureServiceURL: serviceURL,

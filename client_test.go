@@ -8,10 +8,10 @@ import (
 	"testing"
 )
 
-func TestNewService(t *testing.T) {
+func TestNewClient(t *testing.T) {
 	accountName, accountKey := "name", "key"
 	accountKey = base64.StdEncoding.EncodeToString([]byte(accountKey))
-	s, err := NewService(Config{
+	s, err := NewClient(Config{
 		AccountName: accountName,
 		AccountKey:  accountKey,
 	})
@@ -38,7 +38,7 @@ func TestCreateQueue(t *testing.T) {
 	accountKey = base64.StdEncoding.EncodeToString([]byte(accountKey))
 
 	serviceURL := testServer.URL + "/%s"
-	s, err := NewService(Config{
+	s, err := NewClient(Config{
 		AccountName:     accountName,
 		AccountKey:      accountKey,
 		AzureServiceURL: serviceURL,
@@ -72,7 +72,7 @@ func TestDeleteQueue(t *testing.T) {
 	accountKey = base64.StdEncoding.EncodeToString([]byte(accountKey))
 
 	serviceURL := testServer.URL + "/%s"
-	s, err := NewService(Config{
+	s, err := NewClient(Config{
 		AccountName:     accountName,
 		AccountKey:      accountKey,
 		AzureServiceURL: serviceURL,
@@ -94,7 +94,7 @@ func TestDeleteQueue(t *testing.T) {
 func TestGetQueue(t *testing.T) {
 	accountName, accountKey := "name", "key"
 	accountKey = base64.StdEncoding.EncodeToString([]byte(accountKey))
-	s, err := NewService(Config{
+	s, err := NewClient(Config{
 		AccountName: accountName,
 		AccountKey:  accountKey,
 	})

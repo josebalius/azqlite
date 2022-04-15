@@ -12,7 +12,7 @@ go get github.com/josebalius/azqlite
 
 ### Instantiate a service 
 ```go
-storageService, err := azqlite.NewService(azqlite.Config{
+client, err := azqlite.NewClient(azqlite.Config{
 	AccountName: "YOUR_AZURE_STORAGE_ACCOUNT_NAME_HERE",
 	AccountKey:  "YOUR_AZURE_STORAGE_ACCOUNT_KEY_HERE",
 })
@@ -20,17 +20,17 @@ storageService, err := azqlite.NewService(azqlite.Config{
 
 ### Create a queue
 ```go
-q, err := storageService.CreateQueue(ctx, "test")
+q, err := client.CreateQueue(ctx, "test")
 ```
 
 ### Delete a queue
 ```go
-err = s.DeleteQueue(ctx, "test")
+err = c.DeleteQueue(ctx, "test")
 ```
 
 ### Get an existing queue
 ```go
-q := s.GetQueue("test")
+q := c.GetQueue("test")
 ```
 
 ### Get message count

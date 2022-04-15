@@ -33,8 +33,8 @@ type Queue interface {
 	Delete(ctx context.Context, m *Message) error
 }
 
-// Service represents a queue service.
-type Service struct {
+// Client represents a queue service.
+type Client struct {
 	serviceURL azqueue.ServiceURL
 }
 
@@ -47,10 +47,10 @@ type Config struct {
 	AzureServiceURL string
 }
 
-// NewService creates a new Azure Queue Service. It is configured via the supplied Config.
+// NewClient creates a new Azure Queue Service. It is configured via the supplied Config.
 // The config can contain a different AzureServiceURL to use for the service, this is useful for
 // testing.
-func NewService(cfg Config) (*Service, error) {
+func NewClient(cfg Config) (*Client, error) {
 	if cfg.AzureServiceURL == "" {
 		cfg.AzureServiceURL = "https://%s.queue.core.windows.net"
 	}
@@ -64,12 +64,12 @@ func NewService(cfg Config) (*Service, error) {
 		return nil, fmt.Errorf("failed to parse url: %w", err)
 	}
 	serviceURL := azqueue.NewServiceURL(*u, p)
-	return &Service{serviceURL}, nil
+	return &Client{serviceURL}, nil
 }
 
 // CreateQueue creates a new queue with the given name.
-func (s *Service) CreateQueue(ctx context.Context, queueName string) (Queue, error) {
-	queueURL := s.serviceURL.NewQueueURL(queueName)
+func (c *Client) CreateQueue(ctx context.Context, queueName string) (Queue, error) {
+	queueURL := c.serviceURL.NewQueueURL(queueName)
 	if _, err := queueURL.Create(ctx, azqueue.Metadata{}); err != nil {
 		return nil, err
 	}
@@ -77,14 +77,14 @@ func (s *Service) CreateQueue(ctx context.Context, queueName string) (Queue, err
 }
 
 // DeleteQueue deletes the queue with the given name.
-func (s *Service) DeleteQueue(ctx context.Context, queueName string) error {
-	queueURL := s.serviceURL.NewQueueURL(queueName)
+func (c *Client) DeleteQueue(ctx context.Context, queueName string) error {
+	queueURL := c.serviceURL.NewQueueURL(queueName)
 	_, err := queueURL.Delete(ctx)
 	return err
 }
 
 // GetQueue returns an existing queue with the given name.
-func (s *Service) GetQueue(queueName string) Queue {
-	queueURL := s.serviceURL.NewQueueURL(queueName)
+func (c *Client) GetQueue(queueName string) Queue {
+	queueURL := c.serviceURL.NewQueueURL(queueName)
 	return newQueue(queueURL)
 }
